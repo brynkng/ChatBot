@@ -1,3 +1,0 @@
-#!/bin/bash
-./stopItBot helpDeskConfig
-./stopItBot testConfig
