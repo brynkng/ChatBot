@@ -1,0 +1,6 @@
+#time units:
+#daily
+#weekly
+#monthly
+
+time_unit=weekly

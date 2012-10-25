@@ -1,0 +1,9 @@
+*
+* Only the first column (month/day) is significiant.
+*
+* month/day Holiday name or comment.
+*
+1/1     New Years Day 
+7/4     Independence Day
+11/22   Thanksgiving Day
+12/25   Christmas

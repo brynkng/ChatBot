@@ -1,0 +1,14 @@
+###Use this string when confirming presence in the HelpDesk bot to forward to this group###
+group_identifier_string=default
+
+--START_JID_HANDLES--
+#User Name : jabber id
+#John Smith : johnSmith@talk.google.com
+
+--END_JID_HANDLES--
+
+
+--START_IGNORED_LIST_MODIFIERS--
+#Place the name of any list modifiers inside here that you don't want to apply to this group i.e.
+#RoundRobinRecipientSort
+--END_IGNORED_LIST_MODIFIERS--

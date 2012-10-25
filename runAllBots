@@ -1,0 +1,3 @@
+#!/bin/bash
+./runItBot helpDeskConfig
+./runItBot broadcastConfig

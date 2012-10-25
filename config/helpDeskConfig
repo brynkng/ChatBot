@@ -1,0 +1,48 @@
+###PRODUCTION INFORMATION###
+production_jid=
+production_pwd=
+
+###TESTING INFORMATION###
+testing_enabled=True
+test_jid=
+test_pwd=
+
+###USER SUPPORT EMAIL###
+#user_support_email_sender=
+#user_support_email_receiver=
+
+###MESSAGE FORWARDING###
+forwarded_message_second_threshold=120
+confirmation_request_second_threshold=120
+
+###CUSTOM COMPONENTS###
+message_builder=HelpDeskMessageBuilder
+bot_event_coordinator=HelpDeskBotEventCoordinator
+
+--START_FILTERS_AND_SORTS--
+IgnoreMessagesWithKeywordFilter
+IsDuringBusinessHoursFilter
+
+AvailableRecipientFilter
+RoundRobinRecipientSort
+HelpDeskRecipientFilter
+
+--END_FILTERS_AND_SORTS--
+
+
+--START_JID_FILE_LOCATIONS--
+
+jid_handle_group_file_location=config/RecipientLists/defaultSupportList.txt
+
+--END_JID_FILE_LOCATIONS--
+
+
+###Immediate confirmation message###
+#custom_immediate_sender_confirmation_message=""
+
+###Nobody available messages###
+#nobody_available_during_business_hours_message=""
+#nobody_available_outside_business_hours_message=""
+
+###Non business hours setting. See period.py for formatting###
+business_hours_setting_string=Weekday.Hr09-18

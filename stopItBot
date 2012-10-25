@@ -1,0 +1,7 @@
+#!/bin/bash
+configName=$1
+if [ -e "/var/run/$configName.pid" ]
+then
+    kill `cat /var/run/$configName.pid`
+    rm /var/run/$configName.pid
+fi
