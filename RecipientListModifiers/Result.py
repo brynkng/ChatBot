@@ -18,6 +18,8 @@ class Result():
 	DONT_SEND_RELAY_MESSAGE = 3
 
 	def __init__(self, JidHandleGroups = False, resultCode = False):
+		if not JidHandleGroups: JidHandleGroups = []
+		
 		self.__JidHandleGroups = JidHandleGroups
 
 		if (resultCode == False):
