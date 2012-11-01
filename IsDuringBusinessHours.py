@@ -15,12 +15,12 @@ from resources.period import in_period, is_holiday
 class IsDuringBusinessHours():
 
 	def __init__(self, Config):
-		businessHoursSetting = Config.getBusinessHoursSettingString()
-
-		if not businessHoursSetting:
-			self.__isDuringBusinessHours = True
-		else:
-			self.__isDuringBusinessHours = in_period(businessHoursSetting) and not is_holiday(holidays="config/holidays.txt")
+		self.__businessHoursSetting = Config.getBusinessHoursSettingString()
 
 	def isDuringBusinessHours(self):
-		return self.__isDuringBusinessHours
+		if not self.__businessHoursSetting:
+			isDuringBusinessHours = True
+		else:
+			isDuringBusinessHours = in_period(self.__businessHoursSetting) and not is_holiday(holidays="config/holidays.txt")
+
+		return isDuringBusinessHours
