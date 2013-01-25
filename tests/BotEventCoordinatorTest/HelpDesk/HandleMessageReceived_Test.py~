@@ -62,6 +62,15 @@ class BotEventCoordinator_HelpDesk_HandleMessageReceivedTest(unittest.TestCase):
 
 		self.__PresenceConfirmationManager.validate()
 
+	def test_sends_confirmation_message_to_confirmer_when_we_have_a_pending_confirmation_request_and_the_sender_is_current_requested_recipient(self):
+		self.__given_sender_is_current_requested_recipient()
+		self.__and_we_have_a_pending_confirmation_request()
+		self.__and_message_builder_returns_a_helpdesk_user_confirmation_message()
+
+		BotEventCoordinator = self.__getBotEventCoordinator()
+		BotEventCoordinator.handleMessageReceived(self.__sender, 'some message')
+
+		verify(self.__ItBot).sendMessage(self.__ExpectedMessage).called(times == 1)
 
 	def test_sends_confirmation_message_to_requesters_when_we_have_a_pending_confirmation_request_and_the_sender_is_current_requested_recipient(self):
 		self.__given_recipient_filter_returns_requester()
@@ -112,6 +121,17 @@ class BotEventCoordinator_HelpDesk_HandleMessageReceivedTest(unittest.TestCase):
 		BotEventCoordinator.handleMessageReceived(self.__sender, 'some message')
 
 		self.__PresenceConfirmationManager.validate()
+
+	def test_sends_email_when_nobody_available(self):
+		self.skipTest("")
+		self.__given_nobody_is_available()
+
+		self.__then_expect_email_is_sent()
+
+		BotEventCoordinator = self.__getBotEventCoordinator()
+		BotEventCoordinator.handleMessageReceived(self.__sender, 'some message')
+
+		self.__ItBot.validate()
 
 	def test_adds_sender_to_email_body_when_nobody_is_available_and_message_was_received(self):
 		self.__given_nobody_is_available()
